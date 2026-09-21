@@ -29,22 +29,13 @@ conda activate foccus_traj
 # Install mamba
 conda install -y -c conda-forge mamba
 
-# Get OpenDrift
-echo "📥 Downloading OpenDrift directory from GitHub..."
-# Download repository zip and extract only the OpenDrift folder
-wget -N https://github.com/mateuszmatu/FOCCUS-trajectory-demonstrator/archive/refs/heads/main.zip -O repo_main.zip
-unzip -q repo_main.zip
-mv FOCCUS-trajectory-demonstrator-main/OpenDrift ./OpenDrift || true
-rm -rf FOCCUS-trajectory-demonstrator-main repo_main.zip
-
 ### === Install exact packages ===
 echo "📦 Installing required packages..."
-cd OpenDrift
-mamba install .
 mamba install -y -c conda-forge \
   ipython \
   ipywidgets==8.0.0 \
   bokeh==3.10.0 \
+  opendrift==1.14.9 \
   ipykernel jupyter nbformat nbconvert s3fs
 
 ### === Register kernel for Jupyter ===
