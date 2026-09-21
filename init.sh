@@ -34,6 +34,7 @@ echo "📦 Installing required packages..."
 mamba install -y -c conda-forge \
   ipython \
   ipywidgets==8.0.0 \
+  nodejs \
   bokeh==3.10.0 \
   opendrift==1.14.9 \
   jupyter_bokeh==4.1.0 \
