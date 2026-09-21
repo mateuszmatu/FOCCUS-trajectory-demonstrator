@@ -36,6 +36,7 @@ mamba install -y -c conda-forge \
   ipywidgets==8.0.0 \
   bokeh==3.10.0 \
   opendrift==1.14.9 \
+  jupyter_bokeh==4.1.0 \
   ipykernel jupyter nbformat nbconvert s3fs
 
 ### === Register kernel for Jupyter ===
