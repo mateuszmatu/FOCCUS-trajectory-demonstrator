@@ -58,8 +58,8 @@ nb_path = "main.ipynb"
 nb = nbformat.read(open(nb_path), as_version=nbformat.NO_CONVERT)
 
 nb["metadata"]["kernelspec"] = {
-    "name": "foccus_ospar",
-    "display_name": "Python (foccus_ospar)",
+    "name": "opendrift",
+    "display_name": "Python (opendrift)",
     "language": "python"
 }
 
@@ -70,7 +70,7 @@ EOF
 echo "🧼 Clearing cell outputs..."
 jupyter nbconvert --clear-output --inplace main.ipynb
 
-echo "✅ Setup complete. You can now open main.ipynb and it will use the 'foccus_ospar' kernel by default."
+echo "✅ Setup complete. You can now open main.ipynb and it will use the 'opendrift' kernel by default."
 
 ### === Download input ===
 
