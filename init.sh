@@ -23,7 +23,7 @@ source $INSTALL_DIR/etc/profile.d/conda.sh
 
 ### === Create and activate environment ===
 echo "🧪 Creating conda environment 'opendrift'..."
-conda create -y -n opendrift python=3.12.2
+conda create -y -n opendrift python=3.14.7
 conda activate opendrift
 
 # Install mamba
