@@ -22,9 +22,9 @@ rm $MINIFORGE
 source $INSTALL_DIR/etc/profile.d/conda.sh
 
 ### === Create and activate environment ===
-echo "🧪 Creating conda environment 'foccus_traj'..."
-conda create -y -n foccus_traj python=3.12.2
-conda activate foccus_traj
+echo "🧪 Creating conda environment 'opendrift'..."
+conda create -y -n opendrift python=3.12.2
+conda activate opendrift
 
 # Install mamba
 conda install -y -c conda-forge mamba
@@ -40,7 +40,7 @@ mamba install -y -c conda-forge \
 
 ### === Register kernel for Jupyter ===
 echo "🔗 Registering Jupyter kernel..."
-python -m ipykernel install --user --name foccus_traj --display-name "Python (foccus_traj)"
+python -m ipykernel install --user --name opendrift --display-name "Python (opendrift)"
 
 ### === Download notebook and helper script ===
 echo "📥 Downloading notebook and script..."
