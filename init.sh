@@ -22,11 +22,29 @@ rm $MINIFORGE
 source $INSTALL_DIR/etc/profile.d/conda.sh
 
 ### === Create and activate environment ===
-echo "🧪 Creating conda environment 'OpenDrift'..."
-cd OpenDrift
-conda env create -f environment.yml
-conda activate opendrift
-pip install --no-deps -e .
+echo "🧪 Creating conda environment 'foccus_ospar'..."
+conda create -y -n foccus_ospar python=3.12.2
+conda activate foccus_ospar
+
+# Install mamba
+conda install -y -c conda-forge mamba
+
+### === Install exact packages ===
+echo "📦 Installing required packages..."
+mamba install -y -c conda-forge \
+  cartopy==0.25.0 \
+  cmocean==4.0.3 \
+  ipython \
+  ipywidgets==8.0.0 \
+  matplotlib==3.10.9 \
+  numpy==2.4.6 \
+  pandas==3.0.3 \
+  Shapely==2.1.2 \
+  xarray==2026.4.0 \
+  xugrid==0.15.2 \
+  openpyxl \
+  netcdf4 \
+  ipykernel jupyter nbformat nbconvert s3fs
 
 # Install mamba
 conda install -y -c conda-forge mamba
@@ -38,7 +56,7 @@ mamba install -y -c conda-forge \
 
 ### === Register kernel for Jupyter ===
 echo "🔗 Registering Jupyter kernel..."
-python -m ipykernel install --user --name opendrift --display-name "Python (opendrift)"
+python -m ipykernel install --user --name foccus_ospar --display-name "Python (foccus_ospar)"
 
 ### === Download notebook and helper script ===
 echo "📥 Downloading notebook and script..."
