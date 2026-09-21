@@ -1,0 +1,39 @@
+from opendrift.readers import reader_netCDF_CF_generic
+from opendrift.models.my_element import MyElementDrift
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+import xarray as xr
+
+o = MyElementDrift(loglevel=20)  
+
+o.add_reader(reader_netCDF_CF_generic.Reader('https://thredds.met.no/thredds/dodsC/fou-hi/norkystv3_160m_m70_be'))
+
+#o.set_config('vertical_mixing:diffusivitymodel', 'windspeed_Sundby1983') # windspeed parameterization for eddy diffusivity
+
+#o.set_config('general:premature_deactivation', 'exposure')
+#o.set_config('general:deactivation_exposure', 'simple_minmax_exposure')
+
+o.set_config('general:deac', True)
+
+o.set_config('drift:vertical_mixing', True)
+o.set_config('drift:vertical_advection', True)
+max = 999
+min = -999
+
+
+o.set_config('my_element:avoid_salinity', True)
+o.set_config('my_element:avoid_salinity_value', 32)
+o.set_config('deac:max', max)
+o.set_config('deac:min', min)
+o.set_config('deac:method', 'hard_minmax')
+o.set_config('deac:variable', 'light')
+o.set_config('drift:advection_scheme', 'runge-kutta4')
+o.set_config('general:coastline_action', 'previous')
+
+time = datetime(2025, 5, 1, 12)
+
+pos = [7.3, 57.2]
+pos = [6.18085, 62.36931]
+o.seed_elements(pos[0], pos[1], z=-5, number=10, radius=100,
+                time=time, prefered_light=999, vertical_swim_speed=0.0005)
+o.run(duration=timedelta(hours=48), time_step=timedelta(minutes=15), time_step_output=timedelta(minutes=15), outfile='../FOCCUS-examples/t6_n.nc')                                   
