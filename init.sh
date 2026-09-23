@@ -50,7 +50,6 @@ wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstr
 wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/run_opendrift.py
 wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/Sites_aquaculture.csv
 wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/notebook_code.py
-wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/imgs/FOCCUS_LOGO.jpg
 
 ### === Embed kernel metadata ===
 echo "⚙️ Embedding kernel metadata into notebook..."
@@ -79,4 +78,20 @@ echo "✅ Setup complete. You can now open main.ipynb and it will use the 'opend
 
 # Make folder
 mkdir -p imgs
-mv FOCCUS_LOGO.jpg imgs/FOCCUS_LOGO.jpg
+cd imgs
+
+# Base path to raw files on GitHub
+BASE_URL="https://github.com/mateuszmatu/FOCCUS-trajectory-demonstrator/tree/main/imgs"
+
+# List of files to download
+FILES=(
+  FOCCUS_LOGO.jpg
+)
+
+# Download each file
+for file in "${FILES[@]}"; do
+  echo "Downloading $file..."
+  wget -nc "$BASE_URL/$file"
+done
+
+cd ..
