@@ -50,7 +50,7 @@ wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstr
 wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/run_opendrift.py
 wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/Sites_aquaculture.csv
 wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/notebook_code.py
-wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/images/FOCCUS_LOGO.jpg
+wget -N https://raw.githubusercontent.com/mateuszmatu/FOCCUS-trajectory-demonstrator/refs/heads/main/imgs/FOCCUS_LOGO.jpg
 
 ### === Embed kernel metadata ===
 echo "⚙️ Embedding kernel metadata into notebook..."
