@@ -81,7 +81,7 @@ mkdir -p imgs
 cd imgs
 
 # Base path to raw files on GitHub
-BASE_URL="https://github.com/mateuszmatu/FOCCUS-trajectory-demonstrator/blob/main/imgs"
+BASE_URL="https://github.com/Deltares-research/EditoServices/raw/main/FOCCUS_OSPAR_demonstrator/imgs"
 
 # List of files to download
 FILES=(
